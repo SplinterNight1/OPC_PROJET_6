@@ -18,6 +18,18 @@ function UserIsLogged(){
   return userToken;
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.getElementById("loginForm");
+
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    destroyloginError();
+    getFormInfo();
+    console.log("Form submitted without page refresh!");
+  });
+});
+
+
 //--------------------------------
 // ---------- WORKS --------------
 //Categories json
@@ -420,13 +432,16 @@ async function createLogin() {
   loginForm.appendChild(loginSubmit);
   loginSection.appendChild(forgotPwd);
 
-  const loginFormulaire = document.getElementById('loginForm');
-  loginFormulaire.addEventListener('submit', function (event) {
-    event.preventDefault();
-    destroyloginError();
-    getFormInfo();
-  });
+  // const loginFormulaire = document.getElementById('loginForm');
+  
+  // loginFormulaire.addEventListener('submit', function (event) {
+  //   event.preventDefault();
+  //   destroyloginError();
+  //   getFormInfo();
+  // });
 }
+
+
 // affichage du formulaire de connexion, annihilation de la page d'accueil
 const showLogin = function () {
   exterminate();
