@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sophie Bluel - Architecte d'intérieur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="https://kit.fontawesome.com/e1a783ce50.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <div class="titleAndNav">
+        <h1>Sophie Bluel <span>Architecte d'inteérieur</span>
+        </h1>
+        <nav>
+          <ul class="navbar-ul">
+            <li>projets</li>
+            <li>contact</li>
+            <li class="login-a"><a href="login.html">login</a></li>
+            <li>
+              <img src="./assets/icons/instagram.png" alt="Instagram">
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section id="introduction">
+        <figure>
+          <img src="./assets/images/sophie-bluel.png" alt="">
+        </figure>
+        <article>
+          <h2>Designer d'espace</h2>
+          <p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+          <p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+          <p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+        </article>
+      </section>
+      <section id="portfolio">
+        <div class="myProjectsTitle">
+          <h2>Mes Projets</h2>
+        </div>
+        <div class="filters">
+          <button class="filterButton" id="noFilter">Tous</button>
+          <button class="filterButton" id="Objets">Objets</button>
+          <button class="filterButton" id="Hotels & restaurants">Hotels & restaurants</button>
+          <button class="filterButton" id="Appartements">Appartements</button>
+        </div>
+        <div class="category-figures"></div>
+        <div class="gallery" id="projects-container">
+          <!-- <figure><img src="assets/images/abajour-tahina.png" alt="Abajour Tahina"><figcaption>Abajour Tahina</figcaption></figure> -->
+          <!-- <figure><img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V"><figcaption>Appartement Paris V</figcaption></figure><figure><img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres"><figcaption>Restaurant Sushisen - Londres</figcaption></figure><figure><img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis"><figcaption>Villa “La Balisiere” - Port Louis</figcaption></figure><figure><img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis"><figcaption>Structures Thermopolis</figcaption></figure><figure><img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X"><figcaption>Appartement Paris X</figcaption></figure><figure><img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis"><figcaption>Pavillon “Le coteau” - Cassis</figcaption></figure><figure><img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba"><figcaption>Villa Ferneze - Isola d’Elba</figcaption></figure><figure><img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII"><figcaption>Appartement Paris XVIII</figcaption></figure><figure><img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris"><figcaption>Bar “Lullaby” - Paris</figcaption></figure><figure><img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi"><figcaption>Hotel First Arte - New Delhi</figcaption></figure> -->
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Vous avez un projet ? Discutons-en !</p>
+        <form action="#" method="post">
+          <label for="name">Nom</label>
+          <input type="text" name="name" id="name">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <input type="submit" value="Envoyer">
+        </form>
+      </section>
+    </main>
+    <!-- MODAL EDIT PROJECTS -->
+    <section>
+      <aside id="modal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-modal="true" style="display:none">
+        <div class="modal-wrapper modal-stop">
+          <a href="#" class="closeModal">
+            <i class="fa-solid fa-x"></i>
+          </a>
+          <div class="Modal1">
+            <h3 class="modalTitle" id="ModalTitle"> Galerie Photo </h3>
+            <div class="ModalContentCatalogue" id="projects-container-modal"></div>
+            <div class="modal-content-add-work" id="ModalContentAddworks">
+              <input class="buttonAddWork" type="submit" value="Ajouter une photo" id="picAddBtn">
+            </div>
+          </div>
+          <div class="modale2" style="">
+            <a href="#" class="arrowLeft">
+              <i class="fa fa-light fa-arrow-left" aria-hidden="true"></i>
+            </a>
+            <h3 class="modaleTitle" id="modaleTitle"> Ajout photo </h3>
+            <div class="divAjoutPhotos" id="divAjoutPhotos">
+              <div class="divAddWork">
+                <div class="addWorkFormDiv">
+                  <form class="add-work-form" method="post" enctype="multipart/form-data">
+                    <div class="dropzone" id="dropzone">
+						
+                      <i class="fa fa-thin fa-image faAddImgSquare" aria-hidden="true"></i>
+                      <label class="addImgLabel">
+                        <p>+ Ajouter Photo </p>
+                        <p class="addWorkFormMandatoryStar">*</p>
+                        <input type="file" accept="image/png, image/jpeg" name="image" id="imageInput" required="">
+                      </label>
+                      <p> jpg, png: 4mo max</p>
+                    </div>
+                    <label class="addWorkLabel">
+                      <p>Titre</p>
+                      <p class="addWorkFormMandatoryStar">*</p>
+                    </label>
+                    <input class="addWorkTitle" name="title" required="">
+                    <label class="addWorkLabel">
+                      <p>Catégorie</p>
+                      <p class="addWorkFormMandatoryStar">*</p>
+                    </label>
+                    <select type="select" class="selectCategory" name="category" required="">
+                      <option value=""></option>
+                      <option class="selectCategoryElement" id="Objets" value="1">Objets</option>
+                      <option class="selectCategoryElement" id="Appartements" value="2">Appartements</option>
+                      <option class="selectCategoryElement" id="Hotels &amp; restaurants" value="3">Hotels &amp; restaurants</option>
+                    </select>
+					<div class="error-message-modal"></div>
+                    <hr class="hrLineAddWorkForm">
+                    <input type="submit" value="Valider" class="button-confirm-add-work" id="button-confirm-add-work">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+    <footer>
+      <nav>
+        <ul>
+          <li>Mentions Légales</li>
+        </ul>
+      </nav>
+    </footer>
+   
+  </body>
+  <script src="assets/js/app.js"></script>
+</html>
