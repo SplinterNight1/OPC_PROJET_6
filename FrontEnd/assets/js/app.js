@@ -816,3 +816,22 @@ document.addEventListener('DOMContentLoaded', function () {
     modale2.style.display = 'block'; // You can use 'flex', 'grid', or any other valid display value as needed
   });
 });
+
+
+
+//DETECT CLICK OUTSIDE MODAL
+document.addEventListener('click', function (event) {
+  // Get references to the modal and modal wrapper elements
+  var modal = document.getElementById('modal');
+  
+  var modalWrapper = document.querySelector('.modal-wrapper.modal-stop');
+  // Check if the modal is visible and the clicked element is not inside the modal or a child of modal-wrapper modal-stop
+  // Prevent closing when clicking on the button that opens the modal
+  console.log(event.target.classList.contains('openModal'))
+  if (!event.target.classList.contains('openModal') && modal.style.display !== 'none' && !modalWrapper.contains(event.target)) {
+    console.log("clicked active")
+    
+    // Hide the modal by adding the "display: none" style
+    modal.style.display = 'none';
+  }
+});
