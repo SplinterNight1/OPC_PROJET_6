@@ -722,56 +722,37 @@ function showEditPage() {
 
 
 function createElementAfterAdding(res) {
+  console.log("createElementAfterAdding executing ...")
   // recreateForm();
-  // const newWorkId = res.id;
-  // const newWorkImg = res.imageUrl;
-  // const newWorkTitle = res.title;
+  const newWorkId = res.id;
+  const newWorkImg = res.imageUrl;
+  const newWorkTitle = res.title;
+  const categoryId = res.categoryId;
 
-  // const cataModale = document.querySelector('.modaleContentCatalogue');
-
-  // const workModElement = document.createElement('figure');
-  // workModElement.className = 'workModFigure';
-  // workModElement.id = `workModIdNumber${newWorkId}`;
-
-  // const imageWorkMod = document.createElement('img');
-  // imageWorkMod.src = newWorkImg;
-  // imageWorkMod.crossOrigin = 'anonymous';
-  // imageWorkMod.className = 'workModImage';
-
-  // const editImgBtn = document.createElement('figcaption');
-  // editImgBtn.innerHTML = `<a href="#">éditer</a>`;
-
-  // const trashButtonDiv = document.createElement('div');
-  // trashButtonDiv.className = 'trashSymbolImgDiv';
-
-  // const trashButton = document.createElement('a');
-
-  // trashButton.setAttribute('href', '#');
-  // trashButton.id = `trashButtonNb${newWorkId}`;
-  // trashButton.innerHTML = `<i class="fa fa-light fa-trash-can"></i>`;
-  // cataModale.appendChild(workModElement);
-  // workModElement.appendChild(imageWorkMod);
-  // workModElement.appendChild(editImgBtn);
-  // workModElement.appendChild(trashButtonDiv);
-  // trashButtonDiv.appendChild(trashButton);
-
-  // trashButton.addEventListener('click', deleteWork);
-
-  // const workElement = document.createElement('figure');
-  // workElement.setAttribute('id', `galleryFigureNumber${newWorkId}`);
-
-  // const imageWork = document.createElement('img');
-  // imageWork.src = newWorkImg;
-  // imageWork.crossOrigin = 'anonymous';
-
-  // const titleWork = document.createElement('figcaption');
-  // titleWork.innerText = newWorkTitle;
-
-  // const sectionWorks = document.querySelector('.gallery');
-
-  // sectionWorks.appendChild(workElement);
-  // workElement.appendChild(imageWork);
-  // workElement.appendChild(titleWork);
+  const projectsContainer = document.getElementById('projects-container');
+  const figure = document.createElement('figure');
+  const img = document.createElement('img');
+  const figcaption = document.createElement('figcaption');
+  const projectId = newWorkId;
+ 
+  switch ( categoryId ) {
+    case 1:
+      figure.dataset.categoryName = "Objets"
+      break
+    case 2:
+      figure.dataset.categoryName = "Appartements"
+      break
+    case 3:
+      figure.dataset.categoryName = "Hotels & restaurants"
+      break
+  }
+  figure.classList.add(`gallery-figure-${projectId}`)
+  img.src = newWorkImg;
+  img.alt = newWorkTitle;
+  figcaption.textContent = newWorkTitle;
+  figure.appendChild(img);
+  figure.appendChild(figcaption);
+  projectsContainer.appendChild(figure);
 
   showMainModale();
 }
@@ -805,7 +786,7 @@ function addNewWork(event) {
           }
           closeModalAfterAddingWork()
           return response.json()
-        })
+        })  
         .then((response) => createElementAfterAdding(response))
     } 
   }
