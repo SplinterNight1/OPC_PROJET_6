@@ -23,6 +23,20 @@ function UserIsLogged(){
 //Categories json
 var works = [];
 document.addEventListener('DOMContentLoaded', function () {
+
+  // Get references to the button and modal elements
+  var picAddBtn = document.querySelector('#picAddBtn');
+  var modal2 = document.querySelector('.modale2');
+  var modal1 = document.querySelector('.Modal1');
+
+  // Add a click event listener to the button
+  picAddBtn.addEventListener('click', function () {
+    // Remove the "display: none" style from modale2
+    modal2.style.display = 'block'; // You can use 'flex', 'grid', or any other valid display value as needed
+    modal1.style.display = 'none'; // You can use 'flex', 'grid', or any other valid display value as needed
+  });
+
+
   const apiUrl = 'http://localhost:5678/api/works';
   const projectsContainer = document.getElementById('projects-container');
   const filterButtonsContainer = document.querySelector('.filters');
@@ -272,6 +286,13 @@ function openModal(e) {
     }
   });
 }
+
+function closeModalAfterAddingWork() {
+  console.log("added")
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none';
+}
+
 
 
 //SHOW MODIF BUTTON ON CATEGORIES
@@ -767,6 +788,7 @@ function addNewWork(event) {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
+          closeModalAfterAddingWork()
           return response.json()
         })
         .then((response) => createElementAfterAdding(response))
@@ -780,3 +802,17 @@ function addWorkListener() {
   const addWorkForm = document.querySelector('.add-work-form');
   addWorkForm.addEventListener('submit', addNewWork);
 }
+
+//MODAL ADD PHOTO
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+  // Get references to the button and modal elements
+  var picAddBtn = document.getQuerySelector('#picAddBtn');
+  var modale2 = document.getQuerySelector('.modale2');
+
+  // Add a click event listener to the button
+  picAddBtn.addEventListener('click', function () {
+    // Remove the "display: none" style from modale2
+    modale2.style.display = 'block'; // You can use 'flex', 'grid', or any other valid display value as needed
+  });
+});

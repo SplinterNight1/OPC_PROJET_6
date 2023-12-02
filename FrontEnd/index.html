@@ -74,20 +74,29 @@
     <section>
       <aside id="modal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-modal="true" style="display:none">
         <div class="modal-wrapper modal-stop">
-          <a href="#" class="closeModal">
-            <i class="fa-solid fa-x"></i>
-          </a>
           <div class="Modal1">
+            <a href="#" class="closeModal">
+              <i class="fa-solid fa-x"></i>
+            </a>
             <h3 class="modalTitle" id="ModalTitle"> Galerie Photo </h3>
-            <div class="ModalContentCatalogue" id="projects-container-modal"></div>
+            <div class="ModalContentCatalogue" id="projects-container-modal">
+              
+            </div>
+            <hr class="hrLineAddWorkForm">
             <div class="modal-content-add-work" id="ModalContentAddworks">
               <input class="buttonAddWork" type="submit" value="Ajouter une photo" id="picAddBtn">
             </div>
           </div>
-          <div class="modale2" style="">
-            <a href="#" class="arrowLeft">
-              <i class="fa fa-light fa-arrow-left" aria-hidden="true"></i>
-            </a>
+          <div class="modale2" style="display: none;">
+            <div class="container-buttons-actions">
+              <a href="#" class="arrowLeft">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              </a>
+              <a href="#" class="closeModal">
+                <i class="fa-solid fa-x"></i>
+              </a>
+            </div>
+          
             <h3 class="modaleTitle" id="modaleTitle"> Ajout photo </h3>
             <div class="divAjoutPhotos" id="divAjoutPhotos">
               <div class="divAddWork">
@@ -118,9 +127,11 @@
                       <option class="selectCategoryElement" id="Appartements" value="2">Appartements</option>
                       <option class="selectCategoryElement" id="Hotels &amp; restaurants" value="3">Hotels &amp; restaurants</option>
                     </select>
-					<div class="error-message-modal"></div>
-                    <hr class="hrLineAddWorkForm">
-                    <input type="submit" value="Valider" class="button-confirm-add-work" id="button-confirm-add-work">
+					          <div class="error-message-modal"></div>
+                    <hr class="hrLineAddWorkForm2">
+                    <div class="modal-content-add-work" id="ModalContentAddworks">
+                      <input type="submit" value="Valider" class="button-confirm-add-work" id="button-confirm-add-work">
+                    </div>
                   </form>
                 </div>
               </div>
