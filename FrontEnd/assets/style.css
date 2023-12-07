@@ -603,3 +603,31 @@ label{
 	color: black;
 	text-decoration: none;
 }
+
+
+footer{
+	height: 60px;
+	background-color: #fff;
+	flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+	padding: 20px;
+}
+
+body{
+	background: #FFFEF8;
+	display: flex;
+	flex-direction: column;
+}
+
+footer > nav{
+	display: flex;
+    justify-content: end;
+}
+
+main{
+	min-height: 100vh;
+}
+
+.filters{
+	margin-top: 50px;
+	margin-bottom: 60px;
+}

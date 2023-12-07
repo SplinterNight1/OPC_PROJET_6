@@ -21,15 +21,14 @@ function UserIsLogged(){
 document.addEventListener("DOMContentLoaded", function () {
   const loginForm = document.getElementById("loginForm");
 
-  loginForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    destroyloginError();
-    getFormInfo();
-    console.log("Form submitted without page refresh!");
-  });
-
-
-
+  if ( loginForm ){
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      destroyloginError();
+      getFormInfo();
+      console.log("Form submitted without page refresh!");
+    });
+  }
 });
 
 
@@ -380,7 +379,10 @@ load();
 
 // ---------- LOGIN --------------
 
-createLogin();
+
+document.addEventListener('DOMContentLoaded', function () {
+  createLogin();
+});
 
 async function createLogin() {
   const loginSection = document.createElement('section');
@@ -429,7 +431,7 @@ async function createLogin() {
         </a>
     `;
 
-  main.appendChild(loginSection);
+  // main.appendChild(loginSection);
 
   loginSection.appendChild(loginH2);
   loginSection.appendChild(loginForm);
@@ -813,11 +815,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var picAddBtn = document.getQuerySelector('#picAddBtn');
   var modale2 = document.getQuerySelector('.modale2');
 
-  // Add a click event listener to the button
-  picAddBtn.addEventListener('click', function () {
-    // Remove the "display: none" style from modale2
-    modale2.style.display = 'block'; // You can use 'flex', 'grid', or any other valid display value as needed
-  });
+  if (loginElement && modale2) {
+    // Add a click event listener to the button
+    picAddBtn.addEventListener('click', function () {
+      // Remove the "display: none" style from modale2
+      modale2.style.display = 'block'; // You can use 'flex', 'grid', or any other valid display value as needed
+    });
+  } 
 });
 
 
