@@ -212,9 +212,11 @@ function createAdminHeaderNav() {
           Mode Edition</p>
       `;
   
+    const head = document.head || document.getElementsByTagName('head')[0];
     const childToInsertBefore = header.querySelector('.titleAndNav'); // Replace 'someChildElementId' with the actual child's ID
+    head.parentNode.insertBefore(editBanner, head.nextSibling);
 
-    header.insertBefore(editBanner, childToInsertBefore);
+    // header.insertBefore(editBanner, childToInsertBefore);
   }
 }
 
