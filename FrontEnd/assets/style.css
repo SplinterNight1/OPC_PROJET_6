@@ -287,6 +287,8 @@ label{
 	font-size: 16px;
 	line-height: 19px;
 	color: white;
+	z-index: 999;
+    position: relative;
 }
 .editBannerButton{
 	margin-top: auto;
