@@ -99,10 +99,12 @@ nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 }
-
-li:hover {
-	color: #B1663C;
+li{
+	cursor: pointer;
 }
+/* li:hover {
+	color: #B1663C;
+} */
 #introduction {
 	display: flex;
 	align-items: center;
@@ -582,4 +584,20 @@ label{
 .addWorkLabel{
 	margin-top: 10px;
 	display: flex;
+}
+
+.openModal{
+	color: black;
+	text-decoration: none;
+}
+
+#logout-btn{
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#login-btn{
+	color: black;
+	text-decoration: none;
 }

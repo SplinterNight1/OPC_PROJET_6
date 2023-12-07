@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
     getFormInfo();
     console.log("Form submitted without page refresh!");
   });
+
+
+
 });
 
 
@@ -75,36 +78,39 @@ document.addEventListener('DOMContentLoaded', function () {
       categoryFiguresContainer.innerHTML = '';
 
       categories.add('noFilter'); // Add 'noFilter' as a category
-
-      console.log(categories)
-      categories.forEach((category) => {
-        // Create a figure for each category
-        const categoryFigure = document.createElement('figure');
-        const categoryImg = document.createElement('img');
-        const categoryFigcaption = document.createElement('figcaption');
-
-        // Set image source, alt, and category name
-        categoryImg.src = 'path-to-category-image'; // Replace with actual image path
-        categoryImg.alt = category;
-        categoryFigcaption.textContent = category;
-
-        categoryFigure.appendChild(categoryImg);
-        categoryFigure.appendChild(categoryFigcaption);
-        // categoryFiguresContainer.appendChild(categoryFigure);
-
-        // Add category filter buttons
-        const button = document.createElement('button');
-        button.classList.add('filterButton');
-        button.id = category;
-        if ( category == "noFilter"){
-          button.textContent = "Tous";
-        }else{
-          button.textContent = category;
-        }
-        button.addEventListener('click', () => filterProjectsByCategory(category));
-        filterButtonsContainer.appendChild(button);
-      });
-
+      if (!UserIsLogged()){
+        //if user not logged create filter buttons
+        console.log(categories)
+        categories.forEach((category) => {
+          // Create a figure for each category
+          const categoryFigure = document.createElement('figure');
+          const categoryImg = document.createElement('img');
+          const categoryFigcaption = document.createElement('figcaption');
+  
+          // Set image source, alt, and category name
+          categoryImg.src = 'path-to-category-image'; // Replace with actual image path
+          categoryImg.alt = category;
+          categoryFigcaption.textContent = category;
+  
+          categoryFigure.appendChild(categoryImg);
+          categoryFigure.appendChild(categoryFigcaption);
+          // categoryFiguresContainer.appendChild(categoryFigure);
+  
+          // Add category filter buttons
+          const button = document.createElement('button');
+          button.classList.add('filterButton');
+          button.id = category;
+          if ( category == "noFilter"){
+            button.textContent = "Tous";
+          }else{
+            button.textContent = category;
+          }
+          button.addEventListener('click', () => filterProjectsByCategory(category));
+          filterButtonsContainer.appendChild(button);
+        });
+  
+      }
+    
       // Append project figures
       data.forEach((project) => {
         const figure = document.createElement('figure');
@@ -335,7 +341,7 @@ function changeLoginToLogout() {
       // If user is logged in, create a "logout" link
       const logoutLink = document.createElement('li');
       logoutLink.innerHTML = `
-        <a href="logout.html">logout</a>
+        <p id="logout-btn">logout</p>
       `;
   
       // Replace the existing "login" link with the "logout" link
@@ -482,9 +488,8 @@ async function getFormInfo() {
     password: pwdIdSent,
   };
 
-  const serverLoginAccess = await fetch('http://192.168.0.34:5678/api/users/login', {
+  const serverLoginAccess = await fetch('http://localhost:5678/api/users/login', {
     method: 'POST',
-
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -830,4 +835,13 @@ document.addEventListener('click', function (event) {
     // Hide the modal by adding the "display: none" style
     modal.style.display = 'none';
   }
+});
+
+document.getElementById('logout-btn').addEventListener('click', function() {
+  console.log("logout")
+  // Remove token from localStorage
+  localStorage.removeItem('token'); // Replace 'yourTokenKey' with the actual key used for your token
+
+  // Refresh the page
+  location.reload();
 });
