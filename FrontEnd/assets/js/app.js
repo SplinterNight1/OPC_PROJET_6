@@ -43,11 +43,12 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  picAddBtn.addEventListener('click', function () {
-    modal2.style.display = 'block'; 
-    modal1.style.display = 'none';
-  });
-
+  if ( picAddBtn ){
+    picAddBtn.addEventListener('click', function () {
+      modal2.style.display = 'block'; 
+      modal1.style.display = 'none';
+    });
+  }
 
   const apiUrl = 'http://localhost:5678/api/works';
   const projectsContainer = document.getElementById('projects-container');
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     })
     .catch((error) => {
-      console.error('Fetch error:', error);
+      
     });
 });
 
@@ -145,36 +146,39 @@ function deleteHtmlElements(projectId) {
   });
 }
 
-projectsContainer.addEventListener('click', function (event) {
-  if (event.target.matches('.trashButtonModalWork i')) {
-      event.preventDefault();
+if ( projectsContainer ){
+  projectsContainer.addEventListener('click', function (event) {
+    if (event.target.matches('.trashButtonModalWork i')) {
+        event.preventDefault();
+  
+        const trashButtonId = event.target.closest('.trashButtonModalWork').querySelector('a').id;
+        const projectId = trashButtonId.split('-')[1];
+        const userToken = localStorage.getItem('token')
+  
+        if (userToken) {
+          fetch(`http://localhost:5678/api/works/${projectId}`, {
+            method: 'DELETE',
+              headers: {
+                'Accept': '*/*',
+                Authorization: `Bearer ${userToken}`,
+              },
+          })
+          .then(response => {
+            if (response.status !== 204) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }else{
+              deleteHtmlElements(projectId);
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        } 
+      
+    }
+  });
+}
 
-      const trashButtonId = event.target.closest('.trashButtonModalWork').querySelector('a').id;
-      const projectId = trashButtonId.split('-')[1];
-      const userToken = localStorage.getItem('token')
-
-      if (userToken) {
-        fetch(`http://localhost:5678/api/works/${projectId}`, {
-          method: 'DELETE',
-            headers: {
-              'Accept': '*/*',
-              Authorization: `Bearer ${userToken}`,
-            },
-        })
-        .then(response => {
-          if (response.status !== 204) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }else{
-            deleteHtmlElements(projectId);
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-      } 
-    
-  }
-});
 
 function createAdminHeaderNav() {
   if ( UserIsLogged()){
@@ -560,9 +564,15 @@ function destroyEditPage() {
   var selectInput = document.getElementById('selectInput');
   var errorDiv = document.querySelector(".error-message-modal");
   
-  imageInput.addEventListener('change', checkFields);
-  titleInput.addEventListener('input', checkFields);
-  selectInput.addEventListener('change', checkFields);
+  if ( imageInput ){
+    imageInput.addEventListener('change', checkFields);
+  }
+  if ( titleInput ){
+    titleInput.addEventListener('input', checkFields);
+  }
+  if ( selectInput ){
+    selectInput.addEventListener('change', checkFields);
+  }
   
   function checkFields() {
     var imageValue = imageInput.value.trim();
@@ -624,7 +634,9 @@ function destroyEditPage() {
   var imageInput = document.getElementById('imageInput');
   var dropzone = document.getElementById('dropzone');
   
-  imageInput.addEventListener('change', displayImage);
+  if ( imageInput ){
+    imageInput.addEventListener('change', displayImage);
+  }
 
   function displayImage() {
     var file = imageInput.files[0];
@@ -742,7 +754,13 @@ document.addEventListener('click', function (event) {
   }
 });
 
-document.getElementById('logout-btn').addEventListener('click', function() {
-  localStorage.removeItem('token');
-  location.reload();
+document.addEventListener('DOMContentLoaded', function() {
+  var logoutBtn = document.getElementById('logout-btn');
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', function() {
+      localStorage.removeItem('token');
+      location.reload();
+    });
+  }
 });
