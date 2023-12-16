@@ -644,7 +644,7 @@ function destroyEditPage() {
     if (file) {
       var imageURL = URL.createObjectURL(file);
       var imgElement = document.createElement('img');
-      imgElement.style = "width: 100%; height: 100%;"
+      imgElement.style = "max-height: 169px;"
       imgElement.src = imageURL;
       imgElement.classList.add("imgShowed");
       var children = Array.from(dropzone.children);
