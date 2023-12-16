@@ -9,7 +9,6 @@ const submit = document.getElementById("loginSubmit");
 
 alredyLogged();
 
-// Si l'utilisateur est déjà connecté, on supprime le token
 function alredyLogged() {
     if (localStorage.getItem("token")) {
         localStorage.removeItem("token");
@@ -20,7 +19,6 @@ function alredyLogged() {
     }
 }
 
-// Au clic, on envoie les valeurs de connextion
 submit.addEventListener("click", () => {
     let user = {
         email: email.value,
@@ -29,7 +27,6 @@ submit.addEventListener("click", () => {
     login(user);
 })
 
-// Fonction de connexion
 function login(id) {
     const loginFormulaire = document.getElementById('loginForm');
     const loginIdSent = loginFormulaire.querySelector(
@@ -45,7 +42,6 @@ function login(id) {
         password: pwdIdSent,
     };
     console.log(jsonLogin)
-    // verification de l'email et du mot de passe
     fetch('http://192.168.0.34:5678/api/users/login', {
         method: 'POST',
         headers: {
@@ -56,23 +52,17 @@ function login(id) {
     .then(response => response.json())
     .then(result => { 
         console.log(result);
-        // Si couple email/mdp incorrect
         if (result.error || result.message) {
             const p = document.createElement("p");
             p.innerHTML = "La combinaison e-mail/mot de passe est incorrecte";
             loginMdpError.appendChild(p);
 
-        // Si couple email/mdp correct
         } else if (result.token) {
             console.log(result.token)
             localStorage.setItem("token", result.token);
-            // window.location.href = "index.html";
             window.location.href = "/index.html";        }
     
     })
-    // prevenir l'utilisateur en cas d'erreur
-    
     .catch(error => 
         console.log(error));
-
 }

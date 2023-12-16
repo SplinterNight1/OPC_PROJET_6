@@ -52,8 +52,6 @@
         </div>
         <div class="category-figures"></div>
         <div class="gallery" id="projects-container">
-          <!-- <figure><img src="assets/images/abajour-tahina.png" alt="Abajour Tahina"><figcaption>Abajour Tahina</figcaption></figure> -->
-          <!-- <figure><img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V"><figcaption>Appartement Paris V</figcaption></figure><figure><img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres"><figcaption>Restaurant Sushisen - Londres</figcaption></figure><figure><img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis"><figcaption>Villa “La Balisiere” - Port Louis</figcaption></figure><figure><img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis"><figcaption>Structures Thermopolis</figcaption></figure><figure><img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X"><figcaption>Appartement Paris X</figcaption></figure><figure><img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis"><figcaption>Pavillon “Le coteau” - Cassis</figcaption></figure><figure><img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba"><figcaption>Villa Ferneze - Isola d’Elba</figcaption></figure><figure><img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII"><figcaption>Appartement Paris XVIII</figcaption></figure><figure><img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris"><figcaption>Bar “Lullaby” - Paris</figcaption></figure><figure><img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi"><figcaption>Hotel First Arte - New Delhi</figcaption></figure> -->
         </div>
       </section>
       <section id="contact">
@@ -70,7 +68,6 @@
         </form>
       </section>
     </main>
-    <!-- MODAL EDIT PROJECTS -->
     <section>
       <aside id="modal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-modal="true" style="display:none">
         <div class="modal-wrapper modal-stop">
@@ -103,7 +100,6 @@
                 <div class="addWorkFormDiv">
                   <form class="add-work-form" method="post" enctype="multipart/form-data">
                     <div class="dropzone" id="dropzone">
-						
                       <i class="fa fa-thin fa-image faAddImgSquare" aria-hidden="true"></i>
                       <label class="addImgLabel">
                         <p>+ Ajouter Photo </p>
@@ -116,12 +112,12 @@
                       <p>Titre</p>
                       <p class="addWorkFormMandatoryStar">*</p>
                     </label>
-                    <input class="addWorkTitle" name="title" required="">
+                    <input class="addWorkTitle" name="title" required="" id="titleInput">
                     <label class="addWorkLabel">
                       <p>Catégorie</p>
                       <p class="addWorkFormMandatoryStar">*</p>
                     </label>
-                    <select type="select" class="selectCategory" name="category" required="">
+                    <select type="select" class="selectCategory" name="category" required="" id="selectInput">
                       <option value=""></option>
                       <option class="selectCategoryElement" id="Objets" value="1">Objets</option>
                       <option class="selectCategoryElement" id="Appartements" value="2">Appartements</option>
