@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
       destroyloginError();
       getFormInfo();
-      console.log("Form submitted without page refresh!");
     });
   }
 });
@@ -76,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
       categories.add('noFilter');
       if (!UserIsLogged()){
-        console.log(categories)
         categories.forEach((category) => {
           const categoryFigure = document.createElement('figure');
           const categoryImg = document.createElement('img');
@@ -144,8 +142,6 @@ function deleteHtmlElements(projectId) {
   const elementsToDelete = document.querySelectorAll(`.gallery-figure-${projectId}`);
   elementsToDelete.forEach(element => {
     element.remove();
-    console.log("deleted", `.gallery-figure-${projectId}`)
-
   });
 }
 
@@ -158,7 +154,6 @@ projectsContainer.addEventListener('click', function (event) {
       const userToken = localStorage.getItem('token')
 
       if (userToken) {
-        console.log('Clicked on trash button for project with ID:', projectId);
         fetch(`http://localhost:5678/api/works/${projectId}`, {
           method: 'DELETE',
             headers: {
@@ -199,7 +194,6 @@ function createAdminHeaderNav() {
 
 function addEventListeners() {
   document.querySelectorAll('.openModal').forEach((a) => {
-    console.log("opened")
     a.addEventListener('click', openModal);
   });
 }
@@ -282,7 +276,6 @@ function openModal(e) {
 }
 
 function closeModalAfterAddingWork() {
-  console.log("added")
   const modal = document.getElementById('modal');
   modal.style.display = 'none';
 }
@@ -310,14 +303,12 @@ function createAdminEditButtonOnProjectsTitle() {
 function changeLoginToLogout() {
     const parentElement = document.querySelector('.navbar-ul');
     if (UserIsLogged()) {
-      console.log('UserIsLogged', UserIsLogged())
       const logoutLink = document.createElement('li');
       logoutLink.innerHTML = `
         <p id="logout-btn">logout</p>
       `;
   
       const loginLink = parentElement.querySelector('.login-a');
-      console.log("loginLink", loginLink)
       if (loginLink) {
         parentElement.replaceChild(logoutLink, loginLink);
       }
@@ -331,7 +322,6 @@ const showAdminHeaderNav = function () {
 };
 
 function load() {
-    console.log("load")
     changeLoginToLogout();
     createAdminHeaderNav();
     createAdminEditButtonOnProjectsTitle();
@@ -454,7 +444,6 @@ async function getFormInfo() {
 
   if (serverLoginStatus == 200) {
     localStorage.setItem('token', serverLoginResponse.token);
-    console.log(serverLoginResponse)
     redirectToMainPage();
   } else {
     const loginError = document.createElement('p');
@@ -592,7 +581,6 @@ function destroyEditPage() {
   }
 
   function resetForm() {
-    console.log("reset form")
     imageInput.src = ''; 
     titleInput.value = ''; 
     selectInput.value = ''; 
@@ -704,7 +692,6 @@ function createElementAfterAdding(res) {
     imgModal.src = newWorkImg;
     imgModal.alt = newWorkTitle;
     figureModal.classList.add("figure-work")
-    console.log("added to modal")
     figureModal.appendChild(imgModal);
     categoryFiguresContainer.appendChild(figureModal);
   }
