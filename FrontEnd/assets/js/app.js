@@ -211,7 +211,6 @@ function insertProjectsIntoModal(){
   const projects = works;
   const filterButtonsContainer = document.querySelector('.filters');
   const projectsContainer = document.getElementById('projects-container-modal');
-  // projectsContainer.innerHTML = '';
 
   const categoryFiguresContainer = document.querySelector('.category-figures');
   projects.forEach((project) => {
@@ -227,7 +226,6 @@ function insertProjectsIntoModal(){
     if (!existingFigure) {
       const figure = document.createElement('figure');
       const img = document.createElement('img');
-      const figcaption = document.createElement('figcaption');
       const projectId = project.id;
   
       figure.innerHTML = `
@@ -243,9 +241,7 @@ function insertProjectsIntoModal(){
       img.alt = project.title;
       img.classList.add("modalImage")
       figure.classList.add("figure-work")
-      figcaption.textContent = project.title;
       figure.appendChild(img);
-      figure.appendChild(figcaption);
       figure.dataset.categoryName = project.category.name;
       projectsContainer.appendChild(figure);
   
@@ -657,9 +653,6 @@ function destroyEditPage() {
       });
       dropzone.appendChild(imgElement);
   
-    } else {
-      // // Clear the dropzone if no file is selected
-      // dropzone.innerHTML = '';
     }
   }
 
@@ -695,11 +688,8 @@ function createElementAfterAdding(res) {
   figure.appendChild(figcaption);
   projectsContainer.appendChild(figure);
 
-
-  //Append to Modal Now
   const figureModal = document.createElement('figure');
   const imgModal  = document.createElement('img');
-  const figcaptionModal  = document.createElement('figcaption');
   const categoryFiguresContainer = document.querySelector('#projects-container-modal');
   if ( categoryFiguresContainer ){
     figureModal.innerHTML = `
@@ -714,10 +704,8 @@ function createElementAfterAdding(res) {
     imgModal.src = newWorkImg;
     imgModal.alt = newWorkTitle;
     figureModal.classList.add("figure-work")
-    figcaptionModal.textContent = newWorkTitle;
     console.log("added to modal")
     figureModal.appendChild(imgModal);
-    figureModal.appendChild(figcaptionModal);
     categoryFiguresContainer.appendChild(figureModal);
   }
 }
@@ -758,22 +746,6 @@ function addWorkListener() {
   addWorkForm.addEventListener('submit', addNewWork);
 }
 
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   var picAddBtn = document.querySelector('#picAddBtn');
-//   var modale2 = document.querySelector('.modale2');
-
-
-//   if (loginElement && modale2) {
-//     picAddBtn.addEventListener('click', function () {
-//       modale2.style.display = 'block';
-//     });
-//   } 
-// });
-
-
-
 document.addEventListener('click', function (event) {
   var modal = document.getElementById('modal');
   var modalWrapper = document.querySelector('.modal-wrapper.modal-stop');
@@ -784,6 +756,6 @@ document.addEventListener('click', function (event) {
 });
 
 document.getElementById('logout-btn').addEventListener('click', function() {
-  localStorage.removeItem('token'); // Replace 'yourTokenKey' with the actual key used for your token
+  localStorage.removeItem('token');
   location.reload();
 });

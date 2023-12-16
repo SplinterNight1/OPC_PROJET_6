@@ -60,7 +60,6 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	/* margin: 50px 0; */
 	flex-wrap: wrap;
 }
 section {
@@ -80,7 +79,7 @@ h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
-;
+
 }
 
 h2{
@@ -102,9 +101,7 @@ nav li {
 li{
 	cursor: pointer;
 }
-/* li:hover {
-	color: #B1663C;
-} */
+
 #introduction {
 	display: flex;
 	align-items: center;
@@ -128,10 +125,7 @@ li{
 #introduction p {
 	margin-bottom: 0.5em;
 }
-/* #portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
-} */
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -182,9 +176,10 @@ input[type="submit"]{
 	color: white;
 	background-color: #1D6154;
 	margin : 2em auto ;
-	/* width: 180px; */
 	text-align: center;
-	border-radius: 60px ;
+	border-radius: 60px;
+	width: 179px;
+	height: 36px;
 }
 
 footer nav ul {
@@ -193,7 +188,6 @@ footer nav ul {
 	margin: 2em
 }
 
-/*NAVBAR*/
 .titleAndNav {
 	display: inline-flex;
 	width: 100%;
@@ -202,7 +196,6 @@ footer nav ul {
 	justify-content: space-between;
   }
   
-/*------- LOGIN PAGE -------*/
 .login-container {
 	width: 100%;
 	display: flex;
@@ -211,7 +204,6 @@ footer nav ul {
 	justify-content: center;
 }
 
- /* A MODIFIER */
 .login-form,
 .addWorkForm {
 	display: flex;
@@ -243,7 +235,6 @@ footer nav ul {
 input{
 	background: #FFF;
 	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
-	/* width: 379px; */
 	height: 51px;
 	flex-shrink: 0;
 	border: none;
@@ -269,8 +260,6 @@ label{
 	margin-top: 10px;
 }
 
-
-/*ADMIN MODE*/
 .editBanner{
 	background-color: #000000;
 	display: flex;
@@ -279,7 +268,6 @@ label{
 	justify-content: center;
 	margin: 0px;
 	margin-bottom: 0px;
-	/* margin-bottom: 15px; */
 	height: 60px;
 	font-family: 'Work Sans';
 	font-style: normal;
@@ -293,10 +281,8 @@ label{
 .editBannerButton{
 	margin-top: auto;
 	margin-bottom: auto;
-  }
+}
 
-
-/*FILTEES*/
 .filters {
 	display: flex;
 	flex-direction: row;
@@ -336,8 +322,6 @@ label{
 	margin-bottom: 1em;
 }
 
-/*MODAL EDIT*/
-
 .modal {
 	position: fixed;
 	display: flex;
@@ -354,15 +338,6 @@ label{
 	align-items: center;
 	z-index: 999;
 }
-
-/* .modal-wrapper {
-	background-color: white;
-	width: 50%;
-	height: 50%;
-	padding: 20px;
-	overflow: auto;
-	animation: slideFromTop 0.3s both;
-} */
 
 .closeModal {
 	float: right;
@@ -381,46 +356,47 @@ label{
 	font-size: 26px;
 	line-height: 30px;
 	text-align: center;
-	margin-top: 20px;
-	margin-bottom: 30px;
+	margin-bottom: 46px;
+	padding-top: 34px;
 }
 
-
-/*MODAL*/
 .modalImage {
-	width: 100%;
+	width: 76.611px;
 	object-position: center;
 	object-fit: cover;
-	height: 16vh;
+	height: 102.064px;
 }
 
 #projects-container-modal {
 	display: grid;
-	justify-content: flex-start;
-	width: 80%;
+	justify-content: center;
+	justify-items: center;
+	width: 420px;
 	margin: auto;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-column-gap: 10px;
-	grid-row-gap: 10px;
+	grid-column-gap: 8px;
+	grid-row-gap: 30px;
   }
 
  
   .modal-wrapper {
 	border-radius: 10px;
 	background-color: white;
-	/* width: 50%;
-	height: 50%; */
-	padding: 20px;
-	overflow: auto;
+	padding-top: 26px;
+	padding-bottom: 26px;
+	padding-right: 36px;
+	padding-left: 36px;
+	overflow-y: auto;
+	overflow-x: hidden;
 	animation: slideFromTop 0.3s both;
 	height: 688px;
 	width: 630px;
   }
 
 #projects-container-modal > figure{
-	width: 100%;
+	width: 78.123px !important; 
 	margin-right: 1%;
-	height: auto;
+	height: 104.08px !important; 
 	margin-bottom: 10px;
 	position: relative;
 
@@ -434,10 +410,16 @@ label{
 	position: relative !important;
 }
 
+.Modal1{
+	height:100%;
+}
+.modal2{
+	height:100%;
+}
 .trashButtonModalWork {
 	position: absolute;
-	top: 5px;
-	right: 5px;
+	top: 6px;
+	right: 6px;
 	border-radius: 2px;
 	background-color: black;
 	color: white;
@@ -457,29 +439,26 @@ label{
 	align-items: center;
 	justify-content: center;
 	width: 80%;
-	/* border-top: 1px solid #B3B3B3; */
 	margin: auto;
 }
 
+.add-work-form{
+	width: 420px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin: auto;
+}
 
-/*AJOUT PHOTO MODAL*/
 .arrowLeft {
 	float: left;
 	color: black;
-	width: 21px;
-	height: 21px;
 	flex-shrink: 0;
 }
-.modaleTitle {
-	font-family: 'Work Sans';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 26px;
-	line-height: 30px;
-	text-align: center;
-	margin-top: 20px;
-	margin-bottom: 30px;
-  }
+.arrowLeft > i {
+	font-size: 21px;
+}
 
   .divAjoutPhotos {
 	width: 80%;
@@ -525,7 +504,7 @@ label{
 	align-items: center;
 	height: 180px;
 	background-color: #E8F1F7;
-	margin-bottom: 20px;
+	/* margin-bottom: 20px; */
   }
 
   #imageInput {
@@ -539,14 +518,14 @@ label{
 	background-color: white;
   }
   .hrLineAddWorkForm {
-	width: 80%;
-	margin-top: 20px;
+	width: 420px;
+	margin-top: 57px;
 	background-color: #B3B3B3;
 	border: 1px solid #B3B3B3;
   }
   .hrLineAddWorkForm2 {
 	width: 100%;
-	margin-top: 20px;
+	margin-top: 47px;
 	background-color: #B3B3B3;
 	border: 1px solid #B3B3B3;
   }
@@ -587,13 +566,11 @@ label{
 }
 .buttonAddWork{
 	cursor: pointer;
-}
-.container-buttons-actions{
-	padding-bottom: 10px;
+	width: 237px !important;
 }
 
 .addWorkLabel{
-	margin-top: 10px;
+	margin-top: 36px;
 	display: flex;
 }
 
@@ -617,7 +594,7 @@ label{
 footer{
 	height: 60px;
 	background-color: #fff;
-	flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+	flex-shrink: 0;
 	padding: 20px;
 }
 
